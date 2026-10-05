@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de Flipping Inmobiliario | ¿Hasta cuánto podés pagar?</title>
+<meta name="description" content="Calculá hasta cuánto podés pagar por una propiedad para refaccionarla y venderla con la rentabilidad que buscás. Departamentos y PH.">
+<link rel="canonical" href="https://matiasleiblich.com/calculadora-flipping/">
+
+<!-- Open Graph / WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calculadora de Flipping Inmobiliario">
+<meta property="og:description" content="¿Hasta cuánto podés pagar para refaccionar, vender y ganar 20%? Calculalo en segundos.">
+<meta property="og:image" content="https://matiasleiblich.com/calculadora-flipping/IMG/preview.jpg">
+<meta property="og:image:secure_url" content="https://matiasleiblich.com/calculadora-flipping/IMG/preview.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Calculadora de Flipping — Matías Leiblich">
+<meta property="og:url" content="https://matiasleiblich.com/calculadora-flipping/">
+<meta property="og:site_name" content="Matías Leiblich">
+<meta property="og:locale" content="es_AR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculadora de Flipping Inmobiliario">
+<meta name="twitter:description" content="¿Hasta cuánto podés pagar para refaccionar, vender y ganar 20%? Calculalo en segundos.">
+<meta name="twitter:image" content="https://matiasleiblich.com/calculadora-flipping/IMG/preview.jpg">
+<meta name="twitter:image:alt" content="Calculadora de Flipping — Matías Leiblich">
+
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MC47CJF0VL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MC47CJF0VL');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0d1b2e;
+  --navy-mid:#0f2440;
+  --navy-light:#1a3050;
+  --gold:#C9A84C;
+  --bg:#f5f4f0;
+  --surface:#fff;
+  --border:#e1e0d9;
+  --text:#0b0b0b;
+  --text-mid:#52514e;
+  --text-muted:#898781;
+  --text-light:#b4b2a9;
+  --green:#1a7a4a;
+  --green-bg:#edf7f1;
+  --green-border:#9fd4b6;
+  --red:#c0392b;
+  --red-bg:#fdf0f0;
+  --red-border:#f2b8b0;
+  --amber:#7d5a00;
+  --amber-bg:#fff8e1;
+  --amber-border:#f0c040;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:13px;line-height:1.6;min-height:100vh}
+h1,h2,h3{font-family:'DM Sans',sans-serif}
+
+/* NAVBAR */
+.navbar{background:var(--navy);padding:0 40px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,.06)}
+.navbar-brand{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.navbar-logo{height:28px}
+.navbar-links{display:flex;gap:20px;align-items:center}
+.navbar-links a{color:rgba(255,255,255,.55);font-size:12px;text-decoration:none;font-family:'DM Sans',sans-serif;font-weight:500;transition:color .2s}
+.navbar-links a:hover{color:#fff}
+.navbar-links a.active{color:var(--gold)}
+
+/* HERO */
+.hero{background:var(--navy);padding:44px 40px 36px;border-bottom:1px solid rgba(255,255,255,.06)}
+.hero-eyebrow{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#6b9fff;margin-bottom:12px;font-family:'DM Sans',sans-serif;font-weight:500}
+.hero-row{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.hero-left{flex:1;min-width:260px}
+.hero-title{font-family:'DM Sans',sans-serif;font-size:32px;font-weight:300;color:#f0f1f3;line-height:1.1;margin-bottom:6px}
+.hero-title strong{font-weight:700;color:#fff}
+.hero-subtitle{font-size:12px;color:#9ca3af;line-height:1.6;max-width:520px}
+.hero-datos{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;margin-top:4px}
+.dato-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 16px;min-width:180px}
+.dato-label{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:#6b7280;margin-bottom:4px;font-family:'DM Sans',sans-serif}
+.dato-row{display:flex;align-items:baseline;gap:4px}
+.dato-prefix{font-size:14px;color:#6b7280}
+.dato-input{font-family:'DM Sans',sans-serif;font-size:20px;font-weight:700;color:#fff;background:transparent;border:none;border-bottom:1.5px solid rgba(255,255,255,.25);outline:none;width:110px;padding:0 2px 2px;transition:border-color .2s}
+.dato-input:focus{border-bottom-color:var(--gold)}
+.dato-static{font-family:'DM Sans',sans-serif;font-size:20px;font-weight:700;color:#fff}
+.dato-static span{font-size:13px;font-weight:500;color:var(--gold)}
+.dato-hint{font-size:9px;color:#6b7a8e;margin-top:5px}
+
+/* MAIN */
+.main{padding:32px 40px;max-width:1100px;margin:0 auto}
+.sec-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px;gap:16px;flex-wrap:wrap}
+.sec-title{font-family:'DM Sans',sans-serif;font-size:18px;font-weight:600;color:var(--text)}
+.sec-desc{font-size:11px;color:var(--text-muted);margin-top:2px}
+
+.tabs{display:flex;gap:6px;background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:4px}
+.tab{display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;border-radius:7px;padding:8px 18px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:var(--text-muted);cursor:pointer;transition:all .15s}
+.tab:hover{color:var(--navy)}
+.tab.active{background:var(--navy);color:#fff}
+.tab i{font-size:15px}
+
+/* Card */
+.calc-card{background:var(--surface);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;display:grid;grid-template-columns:1fr 1.25fr}
+.form-side{padding:22px 24px;border-right:1px solid var(--border)}
+.result-side{padding:22px 24px;background:#fbfaf7}
+.side-title{display:flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:var(--text);margin-bottom:16px}
+.side-title i{font-size:17px;color:var(--navy)}
+
+.field{margin-bottom:16px}
+.field-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.field-label{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);font-family:'DM Sans',sans-serif;font-weight:500}
+.input-wrap{position:relative}
+.input-prefix{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--text-muted);font-weight:500;pointer-events:none;font-family:'DM Sans',sans-serif}
+.input-suffix{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--text-muted);font-weight:500;pointer-events:none;font-family:'DM Sans',sans-serif}
+.input-monto{width:100%;padding:10px 12px 10px 44px;border:1.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:18px;font-weight:700;color:var(--text);background:var(--bg);outline:none;transition:border-color .2s,background .2s}
+.input-monto.no-prefix{padding-left:12px;padding-right:40px}
+.input-monto.sm{font-size:15px;padding-top:8px;padding-bottom:8px}
+.input-monto:focus{border-color:var(--navy);background:#fff}
+.input-monto::placeholder{color:#c5c3bb;font-weight:400;font-size:14px}
+.input-caption{font-size:10px;color:var(--text-muted);margin-top:5px;line-height:1.5}
+.input-caption strong{color:var(--navy)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+.mini-seg{display:flex;gap:2px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:2px}
+.mini-seg button{border:none;background:transparent;border-radius:4px;padding:3px 8px;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;color:var(--text-muted);cursor:pointer}
+.mini-seg button.active{background:var(--navy);color:#fff}
+
+.seg{display:flex;gap:4px}
+.seg-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:8px 4px;border:1.5px solid var(--border);border-radius:6px;background:#fff;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:var(--text-muted);cursor:pointer;transition:all .15s;line-height:1.3}
+.seg-btn small{font-size:9px;font-weight:500;opacity:.8}
+.seg-btn:hover{border-color:var(--navy);color:var(--navy)}
+.seg-btn.active{background:var(--navy);border-color:var(--navy);color:#fff}
+
+.cta-inline{display:inline-flex;align-items:center;gap:5px;margin-top:6px;font-size:10px;font-weight:600;color:#128c7e;text-decoration:none}
+.cta-inline:hover{text-decoration:underline}
+.cta-inline i{font-size:13px}
+
+.adv-box{border-top:1px dashed var(--border);margin-top:4px;padding-top:16px}
+.adv-title{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.adv-title i{font-size:14px}
+.privacy{font-size:10px;color:var(--text-light);margin-top:10px;display:flex;align-items:center;gap:4px}
+
+/* Resultado principal */
+.grand{background:var(--navy);border-radius:12px;padding:18px 20px;text-align:center}
+.grand-label{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:#9ca3af;font-family:'DM Sans',sans-serif}
+.grand-num{font-family:'DM Sans',sans-serif;font-size:32px;font-weight:700;color:#fff;line-height:1.15;margin:4px 0 2px}
+.grand-sub{font-size:11px;color:#9ca3af}
+.grand-m2{font-size:11px;color:var(--gold);margin-top:4px;font-weight:500}
+.grand.bad{background:var(--red-bg);border:1px solid var(--red-border)}
+.grand.bad .grand-label,.grand.bad .grand-sub{color:var(--red)}
+.grand.bad .grand-num{color:var(--red);font-size:20px}
+
+.rango{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:10px}
+.rango-item{background:#fff;border:1.5px solid var(--border);border-radius:8px;padding:8px 6px;text-align:center}
+.rango-item.main{border-color:var(--navy)}
+.rango-pct{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:var(--text-muted);font-family:'DM Sans',sans-serif;font-weight:600}
+.rango-val{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:var(--text);white-space:nowrap}
+.rango-item.main .rango-val{color:var(--navy)}
+
+/* Semáforo */
+.semaforo{border-radius:10px;padding:12px 14px;margin-top:10px;border:1px solid}
+.semaforo.ok{background:var(--green-bg);border-color:var(--green-border);color:var(--green)}
+.semaforo.warn{background:var(--amber-bg);border-color:var(--amber-border);color:var(--amber)}
+.semaforo.bad{background:var(--red-bg);border-color:var(--red-border);color:var(--red)}
+.sem-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.sem-title{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700}
+.sem-pct{font-family:'DM Sans',sans-serif;font-size:20px;font-weight:700;white-space:nowrap}
+.sem-sub{font-size:10px;line-height:1.5;margin-top:3px}
+
+/* Desglose */
+.desglose-title{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);font-family:'DM Sans',sans-serif;font-weight:600;margin:16px 0 4px}
+.res-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);gap:10px}
+.res-key{font-size:12px;font-weight:500;color:var(--text-mid);line-height:1.3}
+.res-sub{font-size:10px;color:var(--text-muted);line-height:1.4}
+.res-val{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:var(--text);white-space:nowrap}
+.res-val.neg{color:var(--red)}
+.res-val.green{color:var(--green)}
+.res-row.total{border-bottom:none;border-top:1.5px solid var(--navy);margin-top:2px}
+.res-row.total .res-key{font-family:'DM Sans',sans-serif;font-weight:700;color:var(--navy)}
+.res-row.total .res-val{color:var(--navy);font-size:15px}
+
+.nota-mini{font-size:10px;color:var(--text-muted);margin-top:10px;line-height:1.5}
+
+/* CTA resultado */
+.cta-box{margin-top:14px;background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:14px}
+.cta-box-title{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;color:var(--text);margin-bottom:2px}
+.cta-box-desc{font-size:10px;color:var(--text-muted);line-height:1.5;margin-bottom:10px}
+.cta-btns{display:flex;gap:6px;flex-wrap:wrap}
+.btn-wa-solid{flex:1;min-width:150px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 12px;border-radius:8px;background:#25d366;color:#fff;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-wa-solid:hover{background:#1fb959;transform:translateY(-1px)}
+.btn-wa-ghost{flex:1;min-width:150px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 12px;border-radius:8px;background:#fff;border:1.5px solid #25d366;color:#128c7e;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-wa-ghost:hover{background:#f0fdf4}
+
+.empty-state{padding:56px 18px;text-align:center;color:var(--text-muted)}
+.empty-state i{font-size:30px;margin-bottom:8px;opacity:.3;display:block}
+.empty-state p{font-size:11px;line-height:1.6}
+
+.nota{border-radius:8px;padding:12px 16px;font-size:10px;line-height:1.7;margin-top:12px;background:var(--amber-bg);border:0.5px solid var(--amber-border);color:var(--amber)}
+
+/* CONTACTO */
+.contacto{background:var(--navy);color:#fff;padding:40px;margin-top:40px}
+.contacto-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:start}
+.contacto-autor{display:flex;gap:16px;align-items:center;margin-bottom:20px}
+.contacto-foto{width:56px;height:56px;border-radius:50%;border:2px solid rgba(201,168,76,.4);object-fit:cover;flex-shrink:0;background:var(--navy-light)}
+.contacto-nombre{font-family:'DM Sans',sans-serif;font-size:18px;font-weight:700;color:#fff}
+.contacto-titulo-text{font-size:11px;color:var(--gold);margin-top:2px}
+.contacto-bio{font-size:11px;color:#9ca3af;line-height:1.7;margin-bottom:20px}
+.contacto-links{display:flex;gap:8px;flex-wrap:wrap}
+.btn-wa{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:8px;background:#fff;border:1.5px solid #25d366;color:#128c7e;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-wa:hover{background:#f0fdf4;transform:translateY(-1px)}
+.btn-secondary{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:8px;background:transparent;border:1.5px solid rgba(255,255,255,.2);color:#9ca3af;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;text-decoration:none;transition:all .2s}
+.btn-secondary:hover{border-color:rgba(255,255,255,.4);color:#fff}
+
+.contacto-cards{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:12px}
+.contacto-card{background:var(--navy-mid);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:16px;display:flex;flex-direction:column}
+.contacto-card.alta{grid-column:2;grid-row:1 / span 2}
+.cc-ico{font-size:18px;margin-bottom:6px}
+.cc-titulo{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:#f0f1f3;margin-bottom:4px}
+.cc-desc{font-size:10px;color:#6b7280;line-height:1.5;margin-bottom:10px;flex:1}
+.cc-link{display:block;font-size:10px;color:#6b9fff;background:rgba(26,122,255,.08);border:1px solid rgba(26,122,255,.2);border-radius:6px;padding:5px 10px;text-decoration:none;transition:background .2s}
+.cc-link:hover{background:rgba(26,122,255,.15)}
+.cc-list{display:flex;flex-direction:column;gap:8px}
+.cc-item{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;font-weight:600;color:#6b9fff;background:rgba(26,122,255,.08);border:1px solid rgba(26,122,255,.2);border-radius:8px;padding:9px 12px;text-decoration:none;transition:background .2s}
+.cc-item:hover{background:rgba(26,122,255,.15)}
+.cc-item span:last-child{font-weight:400}
+
+.footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.06);padding:16px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-brand{font-family:'DM Sans',sans-serif;font-size:12px;color:#9ca3af;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.footer-brand strong{color:#f0f1f3;font-weight:700}
+.footer-tel{color:var(--gold);font-weight:700;text-decoration:none;margin-left:14px}
+.footer-tel:hover{text-decoration:underline}
+.footer-meta{font-size:10px;color:#4b5a6e;text-align:right}
+
+@media(max-width:768px){
+  .navbar{padding:0 16px;gap:12px}
+  .navbar-logo{height:22px}
+  .navbar-links{gap:12px;overflow-x:auto;white-space:nowrap;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .navbar-links::-webkit-scrollbar{display:none}
+  .navbar-links a{font-size:10px}
+  .hero{padding:24px 16px 20px}
+  .hero-title{font-size:22px}
+  .hero-datos{width:100%}
+  .dato-card{min-width:unset;flex:1}
+  .main{padding:16px}
+  .tabs{width:100%}
+  .tab{flex:1;justify-content:center}
+  .calc-card{grid-template-columns:1fr}
+  .form-side{border-right:none;border-bottom:1px solid var(--border);padding:18px 16px}
+  .result-side{padding:18px 16px}
+  .grand-num{font-size:28px}
+  .contacto{padding:28px 16px}
+  .contacto-inner{grid-template-columns:1fr}
+  .contacto-cards{grid-template-columns:1fr}
+  .contacto-card.alta{grid-column:auto;grid-row:auto}
+  .footer{padding:14px 16px;flex-direction:column;text-align:center}
+  .footer-brand{justify-content:center}
+  .footer-tel{margin-left:0}
+  .footer-meta{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="navbar-brand" href="https://matiasleiblich.com">
+    <img class="navbar-logo" src="https://matiasleiblich.com/simulador-bna/IMG/logoml.png" alt="Matías Leiblich" onerror="this.style.display='none'">
+  </a>
+  <div class="navbar-links">
+    <a href="https://matiasleiblich.com/calculadora-inmobiliaria/">Calculadora</a>
+    <a href="https://matiasleiblich.com/calculadora-flipping/" class="active">Flipping</a>
+    <a href="https://matiasleiblich.com/simulador-bna/">Crédito BNA</a>
+    <a href="https://matiasleiblich.com/simulador/">Tasaciones</a>
+    <a href="https://matiasleiblich.com/informes/">Informes</a>
+    <a href="https://matiasleiblich.com">Contacto</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Calculadora interactiva · Flipping inmobiliario · Departamentos y PH</div>
+  <div class="hero-row">
+    <div class="hero-left">
+      <h1 class="hero-title">Calculadora de Flipping<br><strong>¿Hasta cuánto podés pagar?</strong></h1>
+      <div class="hero-subtitle">Ingresá cuánto vale la propiedad refaccionada, su superficie y el tipo de obra. Te decimos el precio máximo de compra para que la operación deje la rentabilidad que buscás.</div>
+    </div>
+    <div class="hero-datos">
+      <div class="dato-card">
+        <div class="dato-label">Objetivo</div>
+        <div class="dato-static" id="hero-objetivo">20% <span>en 6 meses</span></div>
+        <div class="dato-hint">Modificable en Cálculo avanzado</div>
+      </div>
+      <div class="dato-card">
+        <div class="dato-label">Dólar oficial BNA (venta)</div>
+        <div class="dato-row">
+          <span class="dato-prefix">$</span>
+          <input class="dato-input" id="inp-tc" type="text" inputmode="numeric" value="1.540" autocomplete="off">
+        </div>
+        <div class="dato-hint" id="tc-hint">Valor de referencia · podés editarlo</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="sec-header">
+    <div>
+      <div class="sec-title" id="sec-title">Cálculo simple</div>
+      <div class="sec-desc" id="sec-desc">Con 4 datos. El resto de los supuestos vienen cargados por defecto.</div>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab active" id="tab-simple" onclick="setModo('simple')"><i class="ti ti-bolt"></i> Cálculo simple</button>
+      <button class="tab" id="tab-avanzado" onclick="setModo('avanzado')"><i class="ti ti-adjustments-horizontal"></i> Cálculo avanzado</button>
+    </div>
+  </div>
+
+  <div class="calc-card">
+    <!-- FORM -->
+    <div class="form-side">
+      <div class="side-title"><i class="ti ti-home-edit"></i> Datos de la propiedad</div>
+
+      <div class="field">
+        <div class="field-head">
+          <div class="field-label" id="lbl-venta">Precio de venta refaccionada</div>
+          <div class="mini-seg">
+            <button class="active" id="pm-total" onclick="setPrecioModo('total')">Total</button>
+            <button id="pm-m2" onclick="setPrecioModo('m2')">Por m²</button>
+          </div>
+        </div>
+        <div class="input-wrap">
+          <span class="input-prefix">USD</span>
+          <input class="input-monto" type="text" id="inp-venta" placeholder="ej: 140.000" inputmode="numeric" autocomplete="off">
+        </div>
+        <div class="input-caption" id="cap-venta">Cuánto se vendería una vez terminada la obra.</div>
+        <a class="cta-inline" id="cta-tasacion" data-cta="ayuda_precio_venta" href="#" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp"></i> ¿No sabés cuánto vale refaccionada? Te ayudo a estimarla</a>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <div class="field-label" style="margin-bottom:6px">Sup. cubierta</div>
+          <div class="input-wrap">
+            <input class="input-monto no-prefix" type="text" id="inp-cub" placeholder="ej: 40" inputmode="numeric" autocomplete="off">
+            <span class="input-suffix">m²</span>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field-label" style="margin-bottom:6px">Sup. descubierta</div>
+          <div class="input-wrap">
+            <input class="input-monto no-prefix" type="text" id="inp-desc" placeholder="ej: 0" inputmode="numeric" autocomplete="off">
+            <span class="input-suffix">m²</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-label" style="margin-bottom:6px">Tipo de obra</div>
+        <div class="seg">
+          <button class="seg-btn" id="obra-lavada" onclick="setObra('lavada')">Lavada de cara<small>pintura, pisos, detalles</small></button>
+          <button class="seg-btn active" id="obra-refaccion" onclick="setObra('refaccion')">Refacción<small>cocina, baño, instalaciones</small></button>
+        </div>
+      </div>
+
+      <!-- AVANZADO -->
+      <div class="adv-box" id="adv-box" style="display:none">
+        <div class="adv-title"><i class="ti ti-adjustments-horizontal"></i> Supuestos de la operación</div>
+
+        <div class="row2">
+          <div class="field">
+            <div class="field-label" style="margin-bottom:6px">Costo de obra</div>
+            <div class="input-wrap">
+              <span class="input-prefix">USD</span>
+              <input class="input-monto sm" type="text" id="inp-costo-m2" inputmode="numeric" autocomplete="off" style="padding-right:40px">
+              <span class="input-suffix">/m²</span>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label" style="margin-bottom:6px">Rentabilidad buscada</div>
+            <div class="input-wrap">
+              <input class="input-monto no-prefix sm" type="text" id="inp-rent" value="20" inputmode="numeric" autocomplete="off">
+              <span class="input-suffix">%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <div class="field-label" style="margin-bottom:6px">Plazo total</div>
+            <div class="input-wrap">
+              <input class="input-monto no-prefix sm" type="text" id="inp-plazo" value="6" inputmode="numeric" autocomplete="off" style="padding-right:56px">
+              <span class="input-suffix">meses</span>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label" style="margin-bottom:6px">Gastos por mes</div>
+            <div class="input-wrap">
+              <span class="input-prefix">$</span>
+              <input class="input-monto sm" type="text" id="inp-gm" value="400.000" inputmode="numeric" autocomplete="off" style="padding-left:28px">
+            </div>
+          </div>
+        </div>
+        <div class="input-caption" style="margin:-8px 0 14px">Gastos por mes: expensas, ABL/ARBA, servicios y seguro mientras dura la operación.</div>
+
+        <div class="field">
+          <div class="field-label" style="margin-bottom:6px">Precio que te piden <span style="text-transform:none;letter-spacing:0">(opcional)</span></div>
+          <div class="input-wrap">
+            <span class="input-prefix">USD</span>
+            <input class="input-monto sm" type="text" id="inp-pedido" placeholder="ej: 75.000" inputmode="numeric" autocomplete="off">
+          </div>
+          <div class="input-caption">Si lo cargás, te mostramos si el flip cierra a ese precio.</div>
+        </div>
+      </div>
+
+      <p class="privacy"><i class="ti ti-lock"></i> Tus datos no se almacenan</p>
+    </div>
+
+    <!-- RESULTADO -->
+    <div class="result-side">
+      <div class="side-title"><i class="ti ti-currency-dollar"></i> Resultado estimado</div>
+      <div id="result-body">
+        <div class="empty-state"><i class="ti ti-home-search"></i><p>Completá el precio de venta refaccionada<br>y la superficie cubierta para ver el resultado.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nota">
+    ⚠️ <strong>Cómo calculamos.</strong> Gastos de compra: 10% del precio de compra (escritura, sellos, honorarios). Gastos de venta: 6% del precio de venta. Obra: superficie cubierta más 25% de la descubierta, por el costo por m² del tipo de obra (lavada de cara USD 300/m², refacción USD 600/m²). El precio por m² de venta se calcula sobre la superficie cubierta más 50% de la descubierta. La rentabilidad se mide sobre el total invertido (compra + gastos + obra). Pensado para departamentos y PH. No incluye impuesto a las Ganancias. Valores estimativos.
+  </div>
+</div>
+
+<div class="contacto">
+  <div class="contacto-inner">
+    <div>
+      <div class="contacto-autor">
+        <img class="contacto-foto" src="https://matiasleiblich.com/simulador-bna/IMG/Fotoportada.jpg" alt="Matías Leiblich">
+        <div>
+          <div class="contacto-nombre">Matías Leiblich</div>
+          <div class="contacto-titulo-text">Ingeniero Civil · Real Estate</div>
+        </div>
+      </div>
+      <div class="contacto-bio">Soy Ingeniero Civil (UBA) y asesor en Real Estate. Mi enfoque combina el análisis técnico de cada inmueble con el estudio de las condiciones actuales del mercado, lo que permite tomar decisiones de compra, venta e inversión fundamentadas en datos reales.</div>
+      <div class="contacto-links">
+        <a class="btn-wa" data-cta="footer_whatsapp" href="https://wa.me/5491161737552?text=Hola%20Matias.%20Use%20la%20Calculadora%20de%20Flipping%20y%20quisiera%20consultar." target="_blank" rel="noopener">
+          <i class="ti ti-brand-whatsapp"></i> Consultar por WhatsApp
+        </a>
+        <a class="btn-secondary" data-cta="footer_mail" href="mailto:matiasleiblich@deinmobiliarios.com">
+          <i class="ti ti-mail"></i> Mail
+        </a>
+        <a class="btn-secondary" href="https://matiasleiblich.com" target="_blank" rel="noopener">
+          🌐 matiasleiblich.com
+        </a>
+      </div>
+    </div>
+
+    <div class="contacto-cards">
+      <div class="contacto-card">
+        <div class="cc-ico">💰</div>
+        <div class="cc-titulo">¿Tenés una propiedad para vender?</div>
+        <div class="cc-desc">Te ayudo a definir el precio correcto y a venderla en el menor tiempo posible.</div>
+        <a class="cc-link" data-cta="card_vender" href="https://wa.me/5491161737552?text=Hola%20Matias.%20Use%20la%20Calculadora%20de%20Flipping%20y%20quisiera%20asesoramiento%20para%20vender%20una%20propiedad." target="_blank" rel="noopener">💰 Quiero vender →</a>
+      </div>
+      <div class="contacto-card">
+        <div class="cc-ico">🏠</div>
+        <div class="cc-titulo">¿Querés comprar?</div>
+        <div class="cc-desc">Te acompaño en la búsqueda, el análisis técnico de cada propiedad y la negociación.</div>
+        <a class="cc-link" data-cta="card_comprar" href="https://wa.me/5491161737552?text=Hola%20Matias.%20Use%20la%20Calculadora%20de%20Flipping%20y%20quisiera%20asesoramiento%20para%20comprar%20una%20propiedad." target="_blank" rel="noopener">📱 Quiero comprar →</a>
+      </div>
+      <div class="contacto-card alta">
+        <div class="cc-ico">📚</div>
+        <div class="cc-titulo">Herramientas y recursos gratuitos</div>
+        <div class="cc-desc">Calculadora de gastos, simulador de tasaciones, informes de valor y biblioteca de guías para compradores, vendedores e inversores.</div>
+        <div class="cc-list">
+          <a class="cc-item" data-cta="tool_calculadora" href="https://matiasleiblich.com/calculadora-inmobiliaria/" target="_blank" rel="noopener"><span>🧮 Calculadora inmobiliaria</span><span>→</span></a>
+          <a class="cc-item" data-cta="tool_tasador" href="https://matiasleiblich.com/simulador/" target="_blank" rel="noopener"><span>📊 Simulador de Tasaciones</span><span>→</span></a>
+          <a class="cc-item" data-cta="tool_informes" href="https://matiasleiblich.com/informes/" target="_blank" rel="noopener"><span>📈 Informes de Valor</span><span>→</span></a>
+          <a class="cc-item" data-cta="tool_biblioteca" href="https://drive.google.com/drive/folders/1el9JGp-ROZrFCmeo2ruf0rJneN-WWf4z?usp=sharing" target="_blank" rel="noopener"><span>📖 Biblioteca de guías</span><span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-brand">
+    <strong>Matías Leiblich</strong> · Ingeniero Civil · Real Estate
+    <a class="footer-tel" data-cta="footer_telefono" href="https://wa.me/5491161737552" target="_blank" rel="noopener">11-6173-7552</a>
+  </div>
+  <div class="footer-meta">Los valores exhibidos son estimativos.</div>
+</div>
+
+<script>
+/* ── Supuestos fijos ── */
+const WA = '5491161737552';
+const TC_DEFAULT = 1540;          // respaldo si falla la consulta automática
+const GASTOS_COMPRA = 0.10;       // 10% del precio de compra
+const GASTOS_VENTA = 0.06;        // 6% del precio de venta
+const COEF_DESC_OBRA = 0.25;      // descubierta para costo de obra
+const COEF_DESC_VENTA = 0.50;     // descubierta para precio/m² de venta
+const COSTOS_OBRA = { lavada: 300, refaccion: 600 };
+const DEF = { rent: 20, plazo: 6, gm: 400000 };
+
+/* ── Estado ── */
+let modo = 'simple';
+let precioModo = 'total';
+let obra = 'refaccion';
+let costoEditado = false;
+
+/* ── Utilidades ── */
+const $ = id => document.getElementById(id);
+function parseNum(id) {
+  const v = $(id).value.replace(/\./g, '').replace(/,/g, '.');
+  return parseFloat(v) || 0;
+}
+function fmtInput(el) {
+  const raw = el.value.replace(/\D/g, '');
+  if (raw === '') { el.value = ''; return; }
+  el.value = parseInt(raw, 10).toLocaleString('es-AR');
+}
+function fmtUSD(n) { return 'USD ' + Math.round(n).toLocaleString('es-AR'); }
+function fmtN(n)   { return Math.round(n).toLocaleString('es-AR'); }
+function fmtPct(x) { return (Math.round(x * 1000) / 10).toLocaleString('es-AR') + '%'; }
+function getTC()   { return parseNum('inp-tc') || TC_DEFAULT; }
+function waLink(msg) { return `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`; }
+
+function track(name, params) { try { gtag('event', name, params || {}); } catch (e) {} }
+let _trk = null;
+function trackCalculo(p) { clearTimeout(_trk); _trk = setTimeout(() => track('calculo_flipping', p), 1500); }
+
+/* ── Supuestos según modo ── */
+function supuestos() {
+  if (modo === 'avanzado') {
+    return {
+      costoM2: parseNum('inp-costo-m2') || COSTOS_OBRA[obra],
+      rent: (parseNum('inp-rent') || DEF.rent) / 100,
+      plazo: parseNum('inp-plazo') || DEF.plazo,
+      gm: parseNum('inp-gm'),
+      pedido: parseNum('inp-pedido')
+    };
+  }
+  return { costoM2: COSTOS_OBRA[obra], rent: DEF.rent / 100, plazo: DEF.plazo, gm: DEF.gm, pedido: 0 };
+}
+
+/* ── Motor de cálculo (el mismo para simple y avanzado) ── */
+function precioMaximo(ventaNeta, r, obraUSD, tenencia) {
+  return (ventaNeta / (1 + r) - obraUSD - tenencia) / (1 + GASTOS_COMPRA);
+}
+function analizar(ventaNeta, compra, obraUSD, tenencia) {
+  const gc = compra * GASTOS_COMPRA;
+  const inversion = compra + gc + obraUSD + tenencia;
+  const ganancia = ventaNeta - inversion;
+  return { gc, inversion, ganancia, rent: ganancia / inversion };
+}
+
+/* ── Controles ── */
+function setModo(m) {
+  modo = m;
+  const adv = m === 'avanzado';
+  $('tab-simple').className = adv ? 'tab' : 'tab active';
+  $('tab-avanzado').className = adv ? 'tab active' : 'tab';
+  $('adv-box').style.display = adv ? 'block' : 'none';
+  $('sec-title').textContent = adv ? 'Cálculo avanzado' : 'Cálculo simple';
+  $('sec-desc').textContent = adv
+    ? 'Ajustá los supuestos y, si tenés una propiedad en vista, cargá el precio que te piden.'
+    : 'Con 4 datos. El resto de los supuestos vienen cargados por defecto.';
+  track('cambio_pestana', { modo: m });
+  calcular();
+}
+function setPrecioModo(pm) {
+  if (pm === precioModo) return;
+  // Convierte el valor cargado para no perderlo
+  const v = parseNum('inp-venta');
+  const sp = supPonderada();
+  if (v && sp) {
+    const nuevo = pm === 'm2' ? v / sp : v * sp;
+    $('inp-venta').value = fmtN(nuevo);
+  }
+  precioModo = pm;
+  $('pm-total').className = pm === 'total' ? 'active' : '';
+  $('pm-m2').className = pm === 'm2' ? 'active' : '';
+  $('inp-venta').placeholder = pm === 'total' ? 'ej: 140.000' : 'ej: 2.500';
+  calcular();
+}
+function setObra(o) {
+  obra = o;
+  $('obra-lavada').className = o === 'lavada' ? 'seg-btn active' : 'seg-btn';
+  $('obra-refaccion').className = o === 'refaccion' ? 'seg-btn active' : 'seg-btn';
+  if (!costoEditado) $('inp-costo-m2').value = fmtN(COSTOS_OBRA[o]);
+  calcular();
+}
+function supPonderada() { return parseNum('inp-cub') + parseNum('inp-desc') * COEF_DESC_VENTA; }
+function supObra()      { return parseNum('inp-cub') + parseNum('inp-desc') * COEF_DESC_OBRA; }
+
+/* ── Dólar automático (oficial BNA, venta) ── */
+function cargarDolar() {
+  fetch('https://dolarapi.com/v1/dolares/oficial')
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(d => {
+      if (!d || !d.venta) return;
+      const inp = $('inp-tc');
+      if (document.activeElement === inp) return;
+      inp.value = fmtN(d.venta);
+      const f = d.fechaActualizacion ? new Date(d.fechaActualizacion) : new Date();
+      $('tc-hint').textContent = `Actualizado al ${f.toLocaleDateString('es-AR', { day: '2-digit', month: '2-digit', year: 'numeric' })} · podés editarlo`;
+      calcular();
+    })
+    .catch(() => {});
+}
+
+/* ── Cálculo y render ── */
+function calcular() {
+  const cub = parseNum('inp-cub');
+  const desc = parseNum('inp-desc');
+  const sp = supPonderada();
+  const so = supObra();
+  const entrada = parseNum('inp-venta');
+  const s = supuestos();
+
+  // Objetivo en el hero
+  $('hero-objetivo').innerHTML = `${Math.round(s.rent * 100)}% <span>en ${fmtN(s.plazo)} meses</span>`;
+
+  // Precio de venta total y por m²
+  let venta = 0, ventaM2 = 0;
+  if (entrada && sp) {
+    venta = precioModo === 'total' ? entrada : entrada * sp;
+    ventaM2 = venta / sp;
+    $('cap-venta').innerHTML = precioModo === 'total'
+      ? `Equivale a <strong>${fmtUSD(ventaM2)}/m²</strong> (sup. ponderada ${fmtN(sp)} m²).`
+      : `Total: <strong>${fmtUSD(venta)}</strong> (sup. ponderada ${fmtN(sp)} m²).`;
+  } else {
+    $('cap-venta').textContent = precioModo === 'total'
+      ? 'Cuánto se vendería una vez terminada la obra.'
+      : 'Precio por m² una vez terminada la obra.';
+  }
+  actualizarCtaTasacion(cub, desc);
+
+  const body = $('result-body');
+  if (!venta || !cub) {
+    body.innerHTML = `<div class="empty-state"><i class="ti ti-home-search"></i><p>Completá el precio de venta refaccionada<br>y la superficie cubierta para ver el resultado.</p></div>`;
+    return;
+  }
+
+  const tc = getTC();
+  const gastosVenta = venta * GASTOS_VENTA;
+  const ventaNeta = venta - gastosVenta;
+  const obraUSD = so * s.costoM2;
+  const tenencia = (s.gm * s.plazo) / tc;
+  const pMax = precioMaximo(ventaNeta, s.rent, obraUSD, tenencia);
+  const rentPct = Math.round(s.rent * 100);
+
+  // Caso: no hay precio que cierre
+  if (pMax <= 0) {
+    body.innerHTML = `
+      <div class="grand bad">
+        <div class="grand-label">No cierra</div>
+        <div class="grand-num">Con esta venta y esta obra no hay precio de compra que deje ${rentPct}%</div>
+        <div class="grand-sub">La obra y los gastos se comen todo el margen.</div>
+      </div>
+      ${desgloseHTML(venta, ventaM2, gastosVenta, obraUSD, so, s, tenencia, null)}
+      ${ctaHTML(null)}`;
+    bindCtas(body);
+    trackCalculo({ modo, obra, resultado: 'no_cierra' });
+    return;
+  }
+
+  const a = analizar(ventaNeta, pMax, obraUSD, tenencia);
+  const rangos = [Math.max(rentPct - 5, 1), rentPct, rentPct + 5];
+  const rangoHTML = rangos.map(r => {
+    const p = precioMaximo(ventaNeta, r / 100, obraUSD, tenencia);
+    return `<div class="rango-item${r === rentPct ? ' main' : ''}">
+      <div class="rango-pct">Para ${r}%</div>
+      <div class="rango-val">${p > 0 ? fmtUSD(p) : '—'}</div>
+    </div>`;
+  }).join('');
+
+  body.innerHTML = `
+    <div class="grand">
+      <div class="grand-label">Podés pagar hasta</div>
+      <div class="grand-num">${fmtUSD(pMax)}</div>
+      <div class="grand-sub">para ganar ${rentPct}% en ${fmtN(s.plazo)} meses</div>
+      <div class="grand-m2">≈ ${fmtUSD(pMax / sp)}/m² de compra</div>
+    </div>
+    <div class="rango">${rangoHTML}</div>
+    ${semaforoHTML(s, ventaNeta, obraUSD, tenencia, pMax)}
+    ${desgloseHTML(venta, ventaM2, gastosVenta, obraUSD, so, s, tenencia, { compra: pMax, ...a })}
+    ${ctaHTML(pMax)}`;
+
+  bindCtas(body);
+  trackCalculo({ modo, obra, precio_modo: precioModo, venta_usd: Math.round(venta), sup_cubierta: cub, precio_max_usd: Math.round(pMax), con_precio_pedido: s.pedido ? 'si' : 'no' });
+}
+
+function semaforoHTML(s, ventaNeta, obraUSD, tenencia, pMax) {
+  if (modo !== 'avanzado' || !s.pedido) return '';
+  const a = analizar(ventaNeta, s.pedido, obraUSD, tenencia);
+  const anual = a.rent * 12 / s.plazo;
+  let cls, titulo;
+  if (a.rent >= 0.20)      { cls = 'ok';   titulo = '✅ El flip cierra'; }
+  else if (a.rent >= 0.10) { cls = 'warn'; titulo = '⚠️ Margen justo'; }
+  else                     { cls = 'bad';  titulo = '🔴 No cierra'; }
+  const dif = s.pedido - pMax;
+  const negociar = dif > 0
+    ? `Para llegar al ${Math.round(s.rent * 100)}% tendrías que negociar unos ${fmtUSD(dif)} menos.`
+    : `Está ${fmtUSD(-dif)} por debajo de tu precio máximo.`;
+  return `
+    <div class="semaforo ${cls}">
+      <div class="sem-head">
+        <div class="sem-title">${titulo}</div>
+        <div class="sem-pct">${fmtPct(a.rent)}</div>
+      </div>
+      <div class="sem-sub">Comprando a ${fmtUSD(s.pedido)}: ganancia de ${fmtUSD(a.ganancia)} en ${fmtN(s.plazo)} meses (${fmtPct(anual)} anual simple). ${negociar}</div>
+    </div>`;
+}
+
+function desgloseHTML(venta, ventaM2, gastosVenta, obraUSD, so, s, tenencia, r) {
+  const fila = (k, sub, v, cls) => `
+    <div class="res-row">
+      <div><div class="res-key">${k}</div>${sub ? `<div class="res-sub">${sub}</div>` : ''}</div>
+      <div class="res-val ${cls || ''}">${v}</div>
+    </div>`;
+  let html = `<div class="desglose-title">Desglose de la operación</div>`;
+  html += fila('Precio de venta', `${fmtUSD(ventaM2)}/m²`, fmtUSD(venta));
+  html += fila('Gastos de venta', '6% del precio de venta', '− ' + fmtUSD(gastosVenta), 'neg');
+  html += fila('Obra', `${fmtN(so)} m² × ${fmtUSD(s.costoM2)}/m²`, '− ' + fmtUSD(obraUSD), 'neg');
+  html += fila('Gastos mensuales', `${fmtN(s.plazo)} meses × $${fmtN(s.gm)}`, '− ' + fmtUSD(tenencia), 'neg');
+  if (r) {
+    html += fila('Precio de compra máximo', '', '− ' + fmtUSD(r.compra), 'neg');
+    html += fila('Gastos de compra', '10% del precio de compra', '− ' + fmtUSD(r.gc), 'neg');
+    html += `<div class="res-row total"><div><div class="res-key">Ganancia estimada</div><div class="res-sub">sobre una inversión total de ${fmtUSD(r.inversion)}</div></div><div class="res-val green">${fmtUSD(r.ganancia)}</div></div>`;
+  }
+  html += `<div class="nota-mini">No incluye impuesto a las Ganancias · Pensado para departamentos y PH.</div>`;
+  return html;
+}
+
+function ctaHTML(pMax) {
+  const cub = parseNum('inp-cub'), desc = parseNum('inp-desc');
+  const venta = precioModo === 'total' ? parseNum('inp-venta') : parseNum('inp-venta') * supPonderada();
+  const sup = desc ? `${fmtN(cub)} m² cubiertos + ${fmtN(desc)} m² descubiertos` : `${fmtN(cub)} m² cubiertos`;
+  const tipo = obra === 'lavada' ? 'lavada de cara' : 'refacción';
+  const resumen = pMax
+    ? `Me da que puedo pagar hasta ${fmtUSD(pMax).replace(' ', ' ')}.`
+    : 'Me da que no cierra.';
+  const msg1 = `Hola Matías. Usé la Calculadora de Flipping: propiedad de ${sup}, venta estimada refaccionada ${fmtUSD(venta).replace(' ', ' ')}, obra tipo ${tipo}. ${resumen} Tengo una propiedad en vista, ¿la analizamos?`;
+  const msg2 = `Hola Matías. Usé la Calculadora de Flipping y me interesa invertir. ¿Me avisás cuando aparezcan oportunidades que cierren?`;
+  return `
+    <div class="cta-box">
+      <div class="cta-box-title">¿Querés analizarlo en serio?</div>
+      <div class="cta-box-desc">Reviso la propiedad, el valor real de venta refaccionada y el costo de obra con criterio de ingeniero.</div>
+      <div class="cta-btns">
+        <a class="btn-wa-solid" data-cta="resultado_propiedad_en_vista" href="${waLink(msg1)}" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp"></i> Tengo una propiedad en vista</a>
+        <a class="btn-wa-ghost" data-cta="resultado_oportunidades" href="${waLink(msg2)}" target="_blank" rel="noopener"><i class="ti ti-bell"></i> Avisame de oportunidades</a>
+      </div>
+    </div>`;
+}
+
+function actualizarCtaTasacion(cub, desc) {
+  let msg = 'Hola Matías. Estoy usando la Calculadora de Flipping y quisiera ayuda para estimar cuánto valdría una propiedad refaccionada';
+  if (cub) msg += ` (${fmtN(cub)} m² cubiertos${desc ? ' + ' + fmtN(desc) + ' m² descubiertos' : ''})`;
+  msg += '.';
+  $('cta-tasacion').href = waLink(msg);
+}
+
+function bindCtas(root) {
+  root.querySelectorAll('[data-cta]').forEach(a => {
+    a.addEventListener('click', () => track('click_cta', { cta: a.dataset.cta, modo }));
+  });
+}
+
+/* ── Listeners ── */
+['inp-venta', 'inp-cub', 'inp-desc', 'inp-rent', 'inp-plazo', 'inp-gm', 'inp-pedido'].forEach(id => {
+  $(id).addEventListener('input', function () { fmtInput(this); calcular(); });
+});
+$('inp-costo-m2').addEventListener('input', function () { fmtInput(this); costoEditado = !!this.value; calcular(); });
+$('inp-tc').addEventListener('input', function () {
+  fmtInput(this);
+  $('tc-hint').textContent = 'Valor ingresado manualmente';
+  calcular();
+});
+bindCtas(document);
+
+/* ── Init ── */
+$('inp-costo-m2').value = fmtN(COSTOS_OBRA[obra]);
+actualizarCtaTasacion(0, 0);
+cargarDolar();
+</script>
+</body>
+</html>
